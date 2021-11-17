@@ -1,5 +1,5 @@
 /* Base de datos a usar */
-    USE DB208DWESProyectoTema4;
+    USE DB208DWESMtoDepartamentosTema4;
 
 /* Introducción de datos dentro de la tabla creada */
     INSERT INTO Departamento(CodDepartamento,DescDepartamento,FechaBaja, VolumenNegocio) VALUES
