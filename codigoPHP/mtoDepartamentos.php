@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--Aroa Granero Omañas 
 Fecha Creacion: 17/11/2021
-Fecha Modificacion: 17/11/2021 -->
+Fecha Modificacion: 18/11/2021 -->
 <html>
     <head>
         <meta charset="UTF-8">
@@ -16,13 +16,15 @@ Fecha Modificacion: 17/11/2021 -->
         <link rel="shortcut icon" href="favicon.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>AroaGO</title>
-        <title>ejercicio 04 PDO</title>
+        <title>ejercicio 09</title>
         <style>
             table{
                 margin-left: auto;
                 margin-right: auto;
-                width: 60%;
-                white-space:nowrap
+                width: 70%;
+                font-size: 15px;
+                margin-top: 10px;
+
             }
             td,tr{
                 border: solid 3px cadetblue;
@@ -57,6 +59,11 @@ Fecha Modificacion: 17/11/2021 -->
                 font-size: 22px;
                 color: white;
 
+            }
+            img{
+                line-height: 10px;
+                width: 30px;
+                height: 30px;
             }
         </style>
     </head>
@@ -112,6 +119,7 @@ Fecha Modificacion: 17/11/2021 -->
                     <tr>
                         <th>Codigo</th>
                         <th>Descripción</th>
+                        <th>Fecha Baja</th>
                         <th>Volumen de Negocio</th>
                     </tr>
                     <?php
@@ -120,7 +128,11 @@ Fecha Modificacion: 17/11/2021 -->
                         echo "<tr>";
                         echo "<td>$registro->CodDepartamento</td>";
                         echo "<td>$registro->DescDepartamento</td>";
+                        echo "<td>$registro->FechaBaja</td>";
                         echo "<td>$registro->VolumenNegocio</td>";
+                        echo "<td class='celdaIcono'><a href='#'><img src='../webroot/img/editar2.png'></a></td>";
+                        echo "<td class='celdaIcono'><a href='#'><img src='../webroot/img/eliminar2.png'></a></td>";
+                        echo "<td class='celdaIcono'><a href='#'><img src='../webroot/img/ver2.png'></a></td>";
                         echo "</tr>";
                     }
                     ?>
