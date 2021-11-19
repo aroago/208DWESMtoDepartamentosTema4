@@ -130,7 +130,7 @@ Fecha Modificacion: 18/11/2021 -->
                         echo "<td>$registro->DescDepartamento</td>";
                         echo "<td>$registro->FechaBaja</td>";
                         echo "<td>$registro->VolumenNegocio</td>";
-                        echo "<td class='celdaIcono'><a href='#'><img src='../webroot/img/editar2.png'></a></td>";
+                        echo '<td class="celdaIcono"><a href="vMtoDepartamentosEditar.php?CodDepartamentoEnCurso=<?php echo urlencode($registro["CodDepartamento"]);?><img src="../webroot/img/editar2.png"></a></td>';
                         echo "<td class='celdaIcono'><a href='#'><img src='../webroot/img/eliminar2.png'></a></td>";
                         echo "<td class='celdaIcono'><a href='#'><img src='../webroot/img/ver2.png'></a></td>";
                         echo "</tr>";
