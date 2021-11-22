@@ -115,28 +115,34 @@ Fecha Modificacion: 18/11/2021 -->
                     
                     ?>
                 <!--mostrar tabla-->
-                <table>
-                    <tr>
-                        <th>Codigo</th>
-                        <th>Descripción</th>
-                        <th>Fecha Baja</th>
-                        <th>Volumen de Negocio</th>
-                    </tr>
+               
+                 <table>
+                        <tr>
+                            <th>CodDepartamento</th>
+                            <th>DescDepartamento</th>
+                            <th>FechaBaja</th>
+                            <th>VolumenNegocio</th>
+                        </tr>
                     <?php
-                    //Al realizar el fetchObject, se pueden sacar los datos de $registro como si fuera un objeto
-                    while ($registro = $resultadoConsulta->fetchObject()) {
-                        echo "<tr>";
-                        echo "<td>$registro->CodDepartamento</td>";
-                        echo "<td>$registro->DescDepartamento</td>";
-                        echo "<td>$registro->FechaBaja</td>";
-                        echo "<td>$registro->VolumenNegocio</td>";
-                        echo '<td class="celdaIcono"><a href="vMtoDepartamentosEditar.php?CodDepartamentoEnCurso=<?php echo urlencode($registro["CodDepartamento"]);?><img src="../webroot/img/editar2.png"></a></td>';
-                        echo "<td class='celdaIcono'><a href='#'><img src='../webroot/img/eliminar2.png'></a></td>";
-                        echo "<td class='celdaIcono'><a href='#'><img src='../webroot/img/ver2.png'></a></td>";
-                        echo "</tr>";
-                    }
-                    ?>
-                </table>
+                    
+                    $registro = $resultadoConsulta->fetchObject(); // Obtengo el primer registro de la consulta como un objeto
+                    while ($registro) { // recorro los registros que devuelve la consulta de la consulta
+                        $codDepartamento = $registro->CodDepartamento; // obtengo el valor del codigo del departamento del registro actual y lo almaceno en una variable
+                        ?>
+                        <tr>
+                            <td><?php echo $codDepartamento; // obtengo el valor del codigo del departamento del registro actual  ?></td>
+                            <td><?php echo $registro->DescDepartamento; // obtengo el valor de la descripcion del departamento del registro actual  ?></td>
+                            <td><?php echo $registro->FechaBaja; // obtengo el valor de la fecha de baja del departamento del registro actual   ?></td>
+                            <td><?php echo $registro->VolumenNegocio; // obtengo el valor de la fecha de baja del departamento del registro actual   ?></td>
+                            <td class="celdaIcono"><a href="vMtoDepartamentosEditar.php?<?php echo 'CodigoDepartamento='.$codDepartamento;?>"><img src="../webroot/img/editar2.png" alt="Lapiz" /></a></td>
+                            <td class="celdaIcono"><img src="../webroot/img/eliminar2.png" alt="Papelera" /></td>
+                            <td class="celdaIcono"><img src="../webroot/img/ver2.png"  alt="Ojo" /></td>
+                        </tr>
+                        <?php
+                        $registro = $resultadoConsulta->fetchObject(); // guardo el registro actual como un objeto y avanzo el puntero al siguiente registro de la consulta 
+                        }
+                        ?>
+                    </table>
                 <?php
             }
         } catch (PDOException $miExceptionPDO) {       //Si no se ha podido ejecutar saltara la excepcion

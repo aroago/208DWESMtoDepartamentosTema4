@@ -22,7 +22,7 @@ $aFormulario = [// declaro e inicializo el array de los campos del formulario
     'VolumenNegocio' => '',
 ];
 
-if (isset($_REQUEST["Aceptar"])) { // compruebo que el usuario le ha dado a enviar
+if (isset($_REQUEST["Editar"])) { // compruebo que el usuario le ha dado a enviar
     $aErrores['DescDepartamento'] = validacionFormularios::comprobarAlfabetico($_REQUEST['DescDepartamento'], MAX_TAMANYO_ALFABETICO, MIN_TAMANYO_ALFABETICO, OBLIGATORIO); // valido que el nombre esta bien y que la ha introducido
     $aErrores['VolumenNegocio'] = validacionFormularios::comprobarFloat($_REQUEST['VolumenNegocio'], PHP_FLOAT_MAX, -PHP_FLOAT_MAX, OBLIGATORIO);
 
@@ -145,7 +145,7 @@ Fecha Modificacion: 18/11/2021 -->
                     </tr>
 
                 </table>
-                <input id="Aceptar" type="button" name="Editar" value="Aceptar">
+                <input id="Editar" type="button" name="Editar" value="Editar">
                 <input id="Cancelar" type="button" name="Cancelar" value="Cancelar">
 
             </fieldset>
